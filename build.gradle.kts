@@ -31,6 +31,11 @@ dependencies {
 }
 
 tasks.test {
+    testLogging {
+        showStandardStreams = true
+        events("failed", "standardOut", "standardError")
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+    }
 
     val tags = System.getProperty("tags")
     if (!tags.isNullOrBlank()) {
@@ -47,13 +52,12 @@ tasks.test {
         useJUnitPlatform()
     }
 
-
     val apiKey = System.getProperty("REQRES_API_KEY") ?: System.getenv("REQRES_API_KEY")
     if (!apiKey.isNullOrBlank()) {
         systemProperty("REQRES_API_KEY", apiKey)
     }
 
- systemProperty("allure.results.directory", "${buildDir}/allure-results")
+    systemProperty("allure.results.directory", "${buildDir}/allure-results")
 
     doLast {
         copy {
@@ -62,3 +66,6 @@ tasks.test {
         }
     }
 }
+
+
+
