@@ -21,16 +21,15 @@ public class BaseSpecs {
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)
                 .addFilter(new AllureRestAssured())
-                .log(URI)
-                .log(METHOD)
-                .log(HEADERS)
-                .log(BODY);
+                .log(ALL);
+
         if (API_KEY != null && !API_KEY.isBlank()) {
             builder.addHeader("x-api-key", API_KEY);
         }
 
         return builder.build();
     }
+
 
     public static ResponseSpecification status200 = new ResponseSpecBuilder()
             .expectStatusCode(200)
