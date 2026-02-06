@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Assertion / Validation",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Assertion.*|.*expected.*but was.*"
+  },
+  {
+    "name": "Configuration",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*REQRES_API_KEY.*|.*IllegalStateException.*"
+  },
+  {
+    "name": "Network / HTTP",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*UnknownHostException.*|.*ConnectException.*|.*SocketTimeoutException.*"
+  }
+]

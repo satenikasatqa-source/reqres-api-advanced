@@ -1,0 +1,6 @@
+{
+  "name": "Local run",
+  "type": "local",
+  "buildName": "reqres-api-advanced",
+  "buildUrl": "http://localhost"
+}
